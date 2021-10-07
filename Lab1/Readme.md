@@ -1,5 +1,3 @@
-#Lab1
-
 For this laboratory, I have done the following:
 
 For the first exercise I have done most of the tasks required in the "Java part" directory of Github, except for functionality for the "sync" parameter, which only works using its "true" value.
