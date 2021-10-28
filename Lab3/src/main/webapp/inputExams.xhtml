@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+        <h:head>
+            <title>Hello JSF </title>
+        </h:head>
+        <h:body>
+            <h:form id="helloForm">
+                <h:panelGrid>
+                    <p:outputLabel for="examName" value="#{msg.examName}"/>
+                    <p:inputText id="examName"
+                                 value="#{examBean.exam.name}"
+                                 required="true">
+                        <f:validateLength minimum="3"/>
+                    </p:inputText>
+
+                    <p:outputLabel for="date" value="#{msg.date}"/>
+                    <p:datePicker id="date" value="#{examBean.exam.date}" showTime="true"/>
+
+                    <p:outputLabel for="duration" value="#{msg.duration}"/>
+                    <p:inputText id="duration"
+                                 value="#{examBean.exam.duration}"
+                                 required="true">
+                    </p:inputText>
+
+                    <h:commandButton id="submitExam"
+                                     value="#{msg.submit}"
+                                     action="#{examBean.insertRow()}"/> 
+
+                    <p:messages id="messages" showDetail="false" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+
+
+
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </f:view>
+
+</html>
