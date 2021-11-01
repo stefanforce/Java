@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="helloForm">
+            <h:panelGrid>
+                <p:outputLabel for="studentName" value="#{msg.studentName}"/>
+                <p:inputText id="studentName"
+                             value="#{studentBean.student.name}"
+                             required="true">
+                    <f:validateLength minimum="3"/>
+                </p:inputText>
+
+                <p:dataTable var="examm"
+                         value="#{examBean.selectNames()}"
+                         paginator="true" rows="20"
+                         style="width:600px">
+                <p:column id="ExamName"
+                          headerText="#{msg.examName}"
+                          sortBy="#{examm.name}" filterMatchMode="contains">
+                    <h:outputText value="#{examm.name}"/>
+                </p:column>
+
+                <p:column id="AddExamButton"
+                          headerText="#{msg.AddExamQuestion}">
+                    <h:commandButton id="AddExam"
+                                 value="#{msg.AddExamButton}"
+                                 action="To be implemented"/> 
+                </p:column>
+
+            </p:dataTable>
+
+                <h:commandButton id="submitExam"
+                                 value="#{msg.submit}"
+                                 action="#{examBean.insertRow()}"/> 
+
+                <p:messages id="messages" showDetail="false" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+
+
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
