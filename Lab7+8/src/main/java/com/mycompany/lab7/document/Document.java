@@ -2,6 +2,7 @@ package com.mycompany.lab7.document;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -9,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity(name="Document")
 @Table(name="Document")
+@XmlRootElement
 public class Document implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
